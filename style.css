@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800);
+
+:root {
+  --Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+  --Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+  --Grayish-Blue: hsl(212, 23%, 69%);
+  --Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Manrope', sans-serif;
+  background: var(--Light-Grayish-Blue);
+}
+
+.main {
+  display: flex;
+}
+
+.card {
+  display: flex;
+}
+
+.card__wrapper {
+  background: white;
+  max-width: 21.875em;
+  border-radius: 0.75em;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 1em;
+}
+
+.card__image {
+  width: 100%;
+  height: 14.4em;
+  border-radius: 0.75em 0.75em 0 0;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card__wrapper-info {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  gap: 2.2em;
+  padding: 2.2em 1.9em 1em 1.9em;
+}
+
+.card__info {
+  width: 100%;
+}
+
+.card__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: left;
+  color: var(--Very-Dark-Grayish-Blue);
+  margin-bottom: .8em;
+}
+
+.card__text {
+  font-size: .911rem;
+  font-weight: 500;
+  text-align: left;
+  color: var(--Desaturated-Dark-Blue);
+}
+
+.card__profile {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.card__photo {
+  width: 2.7em;
+  height: 2.7em;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.card__photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.card__name {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: .15em;
+  margin-right: 3.5em;
+}
+
+.card__name h2 {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--Very-Dark-Grayish-Blue);
+}
+
+.card__name h3 {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--Grayish-Blue);
+}
+
+.card__icon {
+  background: var(--Light-Grayish-Blue);
+  width: 2.1em;
+  height: 2.1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card__svg-icon {
+  fill: #6E8098;
+  transition: all 300ms ease-in-out;
+}
+
+.active .card__icon {
+  background: var(--Grayish-Blue);
+  z-index: 1;
+  transition: all 300ms ease-in-out;
+}
+
+.active .card__svg-icon {
+  fill: white;
+}
+
+.card__share {
+  background: var(--Very-Dark-Grayish-Blue);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 13%;
+  border-radius: 0 0 .75em .75em;
+
+  opacity: 0;
+  pointer-events: none;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.9em;
+  transition: all 300ms ease-in-out;
+}
+
+.card__icons {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.card__icons h3 {
+  font-size: .81rem;
+  font-weight: 500;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--Grayish-Blue);
+}
+
+.card__icons a {
+  display: flex;
+}
+
+.active .card__share{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .card__wrapper {
+    max-width: 43.75em;
+    flex-flow: row nowrap;
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .card__image {
+    height: 100%;
+    border-radius: .75em 0 0 .75em;
+  }
+
+  .card__wrapper-info {
+    padding: 2.3em;
+  }
+
+  .card__title {
+    font-size: 1.4rem;
+  }
+
+  .card__profile {
+    justify-content: space-between;
+  }
+
+  .card__name {
+    margin-right: 9.5em;
+  }
+
+  .card__icon {
+    position: relative;
+  }
+  
+  .active .card__icon::after {
+    background: var(--Very-Dark-Grayish-Blue);
+    position: absolute;
+    content: " ";
+    top: -23px;
+    clip-path: polygon(50% 50%, 0 0, 100% 0);
+    width: 25px;
+    height: 25px;
+  }
+
+  .card__share {
+    width: 250px;
+    height: 60px;
+    left: 520px;
+    top: 165px;
+    border-radius: 6px;
+    opacity: 0;
+    pointer-events: auto;
+  }
+
+}
